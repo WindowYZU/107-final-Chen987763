@@ -5,9 +5,18 @@
  */
 package lendle.courses.wp.finalexam_wp;
 
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.PopupMenu;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -106,7 +115,18 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel model = (DefaultListModel) this.jList1.getModel();
         if (model.contains(title)) {
             //Q1: 開啟 message dialog （10%）
-            
+            JFrame frame=new JFrame();
+            frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            JButton bt=new JButton("Click");
+            bt.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(frame, "");
+                }
+            });
+            frame.add(bt);
+            frame.setSize(500, 500);
+            frame.setVisible(true);
             ////////////////////
             return;
         }
@@ -114,7 +134,17 @@ public class Main extends javax.swing.JFrame {
         model.addElement(title);
         //Q2: 建立 TaskFrame（等同於 JInternalFrame）
         //加到 jDesktopPane1 (20%)
+        JFrame frame=new JFrame();
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setSize(500, 500);
+        frame.setLayout(new BorderLayout());
         
+        JDesktopPane desktopPane=new JDesktopPane();
+        frame.setContentPane(desktopPane);
+        JInternalFrame internalFrame=new JInternalFrame("internalframe1", true, true, true, true);
+        internalFrame.setSize(300, 300);
+        internalFrame.setVisible(true);
+        frame.add(internalFrame);
         ///////////////////////////////////////
     }//GEN-LAST:event_buttonNewActionPerformed
 
@@ -133,6 +163,11 @@ public class Main extends javax.swing.JFrame {
             //Q3: 建立 TaskFrame（等同於 JInternalFrame）
             //設定 noteTitle, noteContent
             //加到 jDesktopPane1 (20%)
+            JDesktopPane destop=new JDesktopPane();
+            Container JDesktopPane = null;
+            setContentPane(JDesktopPane);
+            PopupMenu JInternalFrame = null;
+            getContentPane().add(JInternalFrame);
             
             //////////////////////////////////////////
         }
